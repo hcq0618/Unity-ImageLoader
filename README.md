@@ -5,7 +5,9 @@ build in Unity 5.3.4f
 
 ## 用法 Usage
 
+```c#
 ImageLoader.GetInstance().Display(...);
+```
 
 ## 说明 Instructions
 
