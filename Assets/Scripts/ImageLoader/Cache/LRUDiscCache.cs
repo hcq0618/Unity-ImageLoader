@@ -52,14 +52,20 @@ namespace UnityImageLoader.Cache
         {
             DirectoryInfo folder = new DirectoryInfo(cachePath);
             FileInfo[] files = folder.GetFiles();
-            Array.Sort(files, new FileDateSort());
-            int deleteNum = (int)(files.Length * 0.4) + 1;
+            
             if (files.Length > 1)
             {
+                Array.Sort(files, new FileDateSort());
+                int deleteNum = (int)(files.Length * 0.4) + 1;
+            
                 for (int i = 0; i < deleteNum; i++)
                 {
                     files[i].Delete();
                 }
+            }
+            else if (files.Length == 1)
+            {
+                files[0].Delete();
             }
 
         }
