@@ -73,8 +73,9 @@ namespace UnityImageLoader.Utils
                     return maxMemory;
                 }
             }
-#else
-            throw new NotImplementedException();
+#elif (UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN)
+            return SystemInfo.systemMemorySize;
+            // throw new NotImplementedException();
 #endif
         }
 
